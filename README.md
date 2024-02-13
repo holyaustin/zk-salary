@@ -1,23 +1,6 @@
-# The DApp Playground for Partisia Blockchain
+# zk-Salary DApp for Partisia Blockchain
 
-This a development environment for the Partisia Blockchain, made for creating applications and smart
-contracts utilizing the Zk Rust and public blockchain.
-
-Read the documentation to better understand
-[the fundamentals of the Partisia Blockchain](https://partisiablockchain.gitlab.io/documentation/pbc-fundamentals/introduction-to-the-fundamentals.html)
-
-The repo contains two simple smart contracts with simple front-ends:
-The [petition contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/petition?ref_type=heads)
-and
-the [average salary contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/zk-average-salary?ref_type=heads)
-This is provided in a codespace, where all the tooling needed for developing smart contracts and
-front-ends is installed.
-
-To develop in your browser create a codespace for a repository,
-select the `main` branch. You can read
-more [here](https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)
-
-Inside the codespace you can run predefined tasks by pressing `Ctrl+Shift+B`.
+This a development environment for the Partisia Blockchain, made for creating applications and smart contracts utilizing the Zk Rust and public blockchain.
 
 ## It is an Automated setup
 
@@ -65,8 +48,24 @@ example
 uses the superpower of Partisia
 Blockchain,
 [Zk contracts](https://partisiablockchain.gitlab.io/documentation/smart-contracts/zk-smart-contracts/zk-smart-contracts.html).
-The
-application consists of a smart contract written in Rust
+
+## Simple Average Salary contract
+Average salary is a common multi-party computation example, where several privacy-concious individuals are interested in determining whether they are getting a fair salary, without revealing the salary of any given individual.
+This implementation works in following steps:
+
+Initialization on the blockchain.
+
+Receival of multiple secret salaries, using the real zk protocol.
+
+Once enough salaries have been received, the contract owner can start the ZK computation.
+
+The Zk computation sums all the given salaries together.
+Once the zk computation is complete, the contract will publicize the the summed variable.
+
+Once the summed variable is public, the contract will compute the average and store it in the state, such that the value can be read by all.
+
+
+The application consists of a smart contract written in Rust
 and [Zk Rust](https://partisiablockchain.gitlab.io/documentation/smart-contracts/zk-smart-contracts/zk-rust-language-zkrust.html)
 and a web frontend written in TypeScript.
 
